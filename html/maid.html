@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minh Lâm - Portfolio Cá Nhân</title>
+  <link rel="stylesheet" href="maid.css">
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <img src="avatar.jpg" alt="Ảnh đại diện" class="avatar">
+      <h2>Minh Lâm</h2>
+      <p>Sinh viên CNTT | Học lập trình game & web</p>
+      <div class="social-links">
+        <a href="https://github.com/sinver-21" target="_blank">GitHub</a>
+        <a href="https://www.facebook.com/minh.lam.90114" target="_blank">Facebook</a>
+      </div>
+    </aside>
+
+    <main class="content">
+      <section>
+        <h2>Giới thiệu</h2>
+        <p>Tôi là sinh viên năm nhất ngành Công nghệ Thông tin, đam mê lập trình và đang học làm game bằng Unity và Python. Tôi muốn phát triển kỹ năng qua các project nhỏ và dần dấn thân vào freelance trong tương lai.</p>
+      </section>
+
+      <section>
+        <h2>Kỹ năng</h2>
+        <ul>
+          <li>Python (cơ bản, làm game với Pygame)</li>
+          <li>C++ (giải thuật và cấu trúc dữ liệu cơ bản)</li>
+          <li>HTML5 & CSS3 cơ bản</li>
+          <li>Unity (C#) – làm game cơ bản</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Dự án cá nhân</h2>
+        <ul>
+          <li></li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Mục tiêu</h2>
+        <p>1 năm tới: Thành thạo Unity và lập trình web, tạo 3–5 project cá nhân và bắt đầu nhận freelance nhỏ.</p>
+        <p>3 năm tới: Làm freelance ổn định hoặc thực tập tại công ty phần mềm.</p>
+      </section>
+
+      <section>
+        <h2>Liên hệ</h2>
+        <p>Email: <a href="mailto:miil4594002@gmail.com">miil4594002@gmail.com</a></p>
+        <p>Điện thoại: 0338 559 758</p>
+      </section>
+    </main>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Minh Lâm. Portfolio cá nhân đầu tiên.</p>
+  </footer>
+  <button id="darkModeToggle" 
+  style="position: fixed; 
+    bottom: 30px; 
+    right: 30px; 
+    z-index: 999; 
+    padding: 10px 18px; 
+    border-radius: 8px; 
+    border: none; 
+    background: #1abc9c; 
+    color: #fff; 
+    font-weight: bold; 
+    box-shadow: 0 2px 8px rgba(44,62,80,0.18); 
+    cursor: pointer;
+    transition: background 0.3s;
+  ">Dark Mode</button>
+  <script>
+    const btn = document.getElementById('darkModeToggle');
+    let dark = false;
+    btn.onclick = function() {
+      dark = !dark;
+      if (dark) {
+        document.body.style.background = "linear-gradient(135deg, #232526 0%, #414345 100%)";
+        document.querySelector('.content').style.background = "linear-gradient(135deg, #232526 80%, #414345 100%)";
+        document.querySelector('.sidebar').style.background = "linear-gradient(135deg, #232526 60%, #414345 100%)";
+        document.body.style.color = "#eee";
+        btn.textContent = "Light Mode";
+      } else {
+        document.body.style.background = "linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%)";
+        document.querySelector('.content').style.background = "linear-gradient(135deg, #fff 80%, #e0eafc 100%)";
+        document.querySelector('.sidebar').style.background = "linear-gradient(135deg, #2c3e50 60%, #34495e 100%)";
+        document.body.style.color = "#333";
+        btn.textContent = "Dark Mode";
+      }
+    };
+  </script>
+  <script>
+    // Hiệu ứng xuất hiện từng section khi cuộn trang
+    document.addEventListener("DOMContentLoaded", function() {
+      const sections = document.querySelectorAll('main .content section');
+      sections.forEach(section => {
+        section.style.opacity = 0;
+        section.style.transform = "translateY(40px)";
+      });
+
+      function revealSections() {
+        sections.forEach(section => {
+          const rect = section.getBoundingClientRect();
+          if (rect.top < window.innerHeight - 60) {
+            section.style.transition = "opacity 0.7s, transform 0.7s";
+            section.style.opacity = 1;
+            section.style.transform = "translateY(0)";
+          }
+        });
+      }
+
+      window.addEventListener('scroll', revealSections);
+      revealSections();
+    });
+  </script>
+  <script>
+    // Đổi màu nền khi click vào avatar
+    document.addEventListener("DOMContentLoaded", function() {
+      const avatar = document.querySelector('.avatar');
+      avatar.addEventListener('click', function() {
+        document.body.style.background = 
+          'linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%)';
+        setTimeout(() => {
+          document.body.style.background = 
+            'linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%)';
+        }, 1200);
+      });
+    });
+  </script>
+</body>
+</html>
